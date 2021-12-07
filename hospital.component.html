@@ -1,0 +1,47 @@
+<title>Hospital Login</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<div class="container-fluid">
+    <h1 style="text-align: center;font-size: 50px;color:black;">GLOBAL MEDIFILE</h1><br>
+    <ul class="nav nav-pills nav-justified">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin">Admin</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="/hospital">Hospital</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/doctor">Doctor</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/relative">Relative/Patient</a>
+      </li>
+    </ul><br><br><br>
+    <div style="padding:3% 10%;margin: auto;background-color:lightgoldenrodyellow;">
+    <h1 style="text-align: center;">HOSPITAL LOGIN</h1><br>
+        <div style="width:55%;margin:auto;border:2px solid white;border-radius:5px;padding: 10px;">
+            <form action="index.jsp" post="method">
+              <label for="ghi">GLOBAL HOSPITAL ID</label><br>
+              <input type="number" id="ghi" name="ghi" [(ngModel)]="test.ghi" style="width:100%;font-size:30px;" required><br>
+            <label for="uname">HOSPITAL USERNAME</label><br>
+            <input type="text" id="uname" name="uname"  (click)="searchById(test.ghi)" [(ngModel)]="test.username" style="width:100%;font-size:30px;" required><br>
+            <label for="pass">PASSWORD</label><br>
+            <input type="password" id="pass" name="pass" (click)="searchById(test.ghi)" [(ngModel)]="test.password" style="width:100%;font-size:30px;" required><br><br>
+            <button (click)="verify(hospital.username,test.username,hospital.password,test.password)" class="btn btn-primary" style="width:100%;font-size:30px;background-color:coral;color:white;">Verify</button><br>
+            <button type="submit" routerLink="/hospitalpatient" id="demo" class="btn btn-primary" style="width:100%;font-size:30px;background-color:blue;color:white;" disabled>Login-Disabled</button><br>
+            
+            </form>
+        </div><br><br><br><br><br>
+    </div>
+</div>
