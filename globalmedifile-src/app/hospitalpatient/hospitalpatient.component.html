@@ -1,0 +1,157 @@
+<title>Hospital Patients</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<div class="container-fluid">
+    <h1 style="text-align: center;font-size: 50px;color:black;">GLOBAL MEDIFILE</h1><br>
+    <ul class="nav nav-pills nav-justified">
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="/hospitalpatient">Patients</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/hospitalpassword">Edit Password/Detaila</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/hospital">Logout</a>
+      </li>
+    </ul><br><br><br>
+    <h3 style="color: maroon;">Hospital Logged in...</h3>
+    <div style="padding:3% 3%;margin: auto;background-color:lightgoldenrodyellow;">
+    <div class="container-fluid">
+      <h1 style="text-align: center;">PATIENTS REGISTRATION</h1><br>
+      <div class="row">
+      <div class="col-sm-4">
+        <div style="margin:auto;border:2px solid white;border-radius:5px;padding: 10px;">
+          <h3 style="text-align: center;">Patient Registration(All information required*)</h3>
+            <form action="#" post="method">
+              <div class="form-group">
+                <label for="gin">GIN:</label><br>
+                <input type="number" class="form-control" [(ngModel)]="patient.gin" placeholder="Enter GIN while updating Only" id="gin" name="gin">
+              </div><br>  
+                <div class="form-group">
+                    <label for="id">Id:</label><br>
+                    <input type="number" class="form-control" [(ngModel)]="patient.pid" placeholder="Enter Id" id="id" name="id" required>
+                  </div><br>
+                <div class="form-group">
+                    <label for="name">Patient Name:</label><br>
+                    <input type="text" class="form-control" [(ngModel)]="patient.patientname" placeholder="Enter Patient Name" id="name" name="name" required>
+                  </div><br>
+                  <div class="form-group">
+                    <label for="address">Address:</label><br>
+                    <input type="text" class="form-control" [(ngModel)]="patient.address" placeholder="Enter Address" id="address" name="address" required>
+                  </div><br>
+                  <div class="form-group">
+                    <label for="ha">Hospital Admitted:</label><br>
+                    <input type="text" class="form-control" [(ngModel)]="patient.hospitaladmitted" placeholder="Enter Hospital Admitted" id="ha" name="ha" required>
+                  </div><br>
+                  <div class="form-group">
+                    <label for="disease">Disease:</label><br>
+                    <input type="text" class="form-control" [(ngModel)]="patient.disease" placeholder="Enter Disease" id="disease" name="disease" required>
+                  </div><br>
+                  <div class="form-group">
+                    <label for="relative">Relative Name:</label><br>
+                    <input type="text" class="form-control" [(ngModel)]="patient.relativename" placeholder="Enter Relative Name" id="relative" name="relative" required>
+                  </div><br>
+                  <div class="form-group">
+                    <label for="phone">Relatives Phone Number:</label><br>
+                    <input type="tel" class="form-control" [(ngModel)]="patient.relativephonenumber" placeholder="Enter Relatives Phone Number" id="phone" name="phone" pattern="[0-9]{10}" required>
+                  </div><br>
+                  <div class="form-group">
+                    <label for="date">Date Admitted:</label><br>
+                    <input type="date" class="form-control" [(ngModel)]="patient.dateadmitted" placeholder="Enter Date Admitted" id="date" name="date" required>
+                  </div><br>
+                  <div class="form-group">
+                    <label for="status">Patients Current Status:</label><br>
+                    <input type="text" class="form-control" [(ngModel)]="patient.currentstatus" placeholder="Enter Patients Current Status" id="status" name="status" required>
+                  </div><br>
+                  <input type="submit" class="btn btn-primary" style="width:45%;font-size:30px;background-color:blue;color:white;" value="Register" (click)="patientNow()">
+                  <input type="submit" class="btn btn-success" style="width:45%;font-size:30px;background-color:coral;color:white;" value="Update" (click)="updatePatientNow()"><br>
+            
+            </form>
+            </div>
+          </div><br><br><br><br><br>
+          <div class="col-sm-8">
+            <h3 style="text-align: center;">List of Patients</h3><br>
+            
+            <table class="table table-dark table-responsive-sm">
+              <thead>
+              <tr>
+                  <th>GIN</th>
+                  <th>Id</th>
+                  <th>Patient Name</th>
+                  <th>Address</th>
+                  <th>Hospital Admitted</th>
+                  <th>Disease</th>
+                  <th>Relative Name</th>
+                  <th>Relative Phone Number</th>
+                  <th>Send SMS</th>
+                  <th>Date Admitted</th>
+                  <th>Patients Current Status</th>
+                  <th>Delete</th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let patient of patients">
+                  <td>{{patient.gin}}</td>
+                  <td>{{patient.pid}}</td>
+                  <td>{{patient.patientname}}</td>
+                  <td>{{patient.address}}</td>
+                  <td>{{patient.hospitaladmitted}}</td>
+                  <td>{{patient.disease}}</td>
+                  <td>{{patient.relativename}}</td>
+                  <td>{{patient.relativephonenumber}}</td>
+                  <td class="text-center"><button class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-user"></span>SMS</button></td>
+                  <td>{{patient.dateadmitted}}</td>
+                  <td>{{patient.currentstatus}}</td>
+                  <td class="text-center"><button class="btn btn-danger btn-xs" (click)="delPatient(patient.gin)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+              </tr>
+              </tbody>
+          </table><br><br>
+          
+        <h2 style="text-align: center;">Search Patients with Global Identification Number</h2><br>
+        <div class="form-group">
+          <label for="search">Search By GIN:</label><br>
+          <input type="number" class="form-control" [(ngModel)]="search.a" id="search" name="search" placeholder="Search By GIN"><br>
+          <button class="btn btn-info btn-xs" (click)="searchById(search.a)"><span class="glyphicon glyphicon-remove"></span> Search</button> <br>
+        </div><br>
+        <table class="table table-dark table-responsive-sm">
+          <tr>
+            <th>GIN</th>
+            <th>Id</th>
+            <th>Patient Name</th>
+            <th>Address</th>
+            <th>Hospital Admitted</th>
+            <th>Disease</th>
+            <th>Relative Name</th>
+            <th>Relative Phone Number</th>
+            <th>Send SMS</th>
+            <th>Date Admitted</th>
+            <th>Patients Current Status</th>
+            <th>Delete</th>
+          </tr>
+            <tr>
+              <td>{{patient.gin}}</td>
+              <td>{{patient.pid}}</td>
+              <td>{{patient.patientname}}</td>
+              <td>{{patient.address}}</td>
+              <td>{{patient.hospitaladmitted}}</td>
+              <td>{{patient.disease}}</td>
+              <td>{{patient.relativename}}</td>
+              <td>{{patient.relativephonenumber}}</td>
+              <td class="text-center"><button class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-user"></span>SMS</button></td>
+              <td>{{patient.dateadmitted}}</td>
+              <td>{{patient.currentstatus}}</td>
+              <td class="text-center"><button class="btn btn-danger btn-xs" (click)="delPatient(patient.gin)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+          </tr>
+      </table>
+          </div>
+    </div>
+    </div>
+</div>

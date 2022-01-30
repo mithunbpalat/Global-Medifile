@@ -1,0 +1,96 @@
+<title>Relative</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<div class="container-fluid">
+    <h1 style="text-align: center;font-size: 50px;color:black;">GLOBAL MEDIFILE</h1><br>
+    <ul class="nav nav-pills nav-justified">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin">Admin</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/hospital">Hospital</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/doctor">Doctor</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="/relative">Relative/Patient</a>
+      </li>
+    </ul><br><br><br>
+    <div style="padding:3% 10%;margin: auto;background-color:lightgoldenrodyellow;">
+    <h1 style="text-align: center;">RELATIVE/PATIENTS</h1><br>
+
+        <table class="table table-dark table-responsive-sm">
+            <tr>
+              <th>GIN</th>
+              <th>Id</th>
+              <th>Patient Name</th>
+              <th>Address</th>
+              <th>Hospital Admitted</th>
+              <th>Disease</th>
+              <th>Relative Name</th>
+              <th>Relative Phone Number</th>
+              <th>Date Admitted</th>
+              <th>Patients Current Status</th>
+            </tr>
+              <tr *ngFor="let patient of patients">
+                <td>{{patient.gin}}</td>
+                <td>{{patient.pid}}</td>
+                <td>{{patient.patientname}}</td>
+                <td>{{patient.address}}</td>
+                <td>{{patient.hospitaladmitted}}</td>
+                <td>{{patient.disease}}</td>
+                <td>{{patient.relativename}}</td>
+                <td>{{patient.relativephonenumber}}</td>
+                <td>{{patient.dateadmitted}}</td>
+                <td>{{patient.currentstatus}}</td>
+            </tr>
+        </table>
+        <br><br>
+        <br><br>
+        <h2 style="text-align: center;">Search Patients with Global Identification Number</h2><br>
+        <div class="form-group">
+          <label for="search">Search By GIN:</label><br>
+          <input type="number" class="form-control" [(ngModel)]="search.a" id="search" name="search" placeholder="Search By GIN"><br>
+          <button class="btn btn-info btn-xs" (click)="searchById(search.a)"><span class="glyphicon glyphicon-remove"></span> Search</button> <br>
+        </div><br>
+        <table class="table table-dark table-responsive-sm">
+          <tr>
+            <th>GIN</th>
+            <th>Id</th>
+            <th>Patient Name</th>
+            <th>Address</th>
+            <th>Hospital Admitted</th>
+            <th>Disease</th>
+            <th>Relative Name</th>
+            <th>Relative Phone Number</th>
+            <th>Date Admitted</th>
+            <th>Patients Current Status</th>
+          </tr>
+            <tr>
+              <td>{{patient.gin}}</td>
+              <td>{{patient.pid}}</td>
+              <td>{{patient.patientname}}</td>
+              <td>{{patient.address}}</td>
+              <td>{{patient.hospitaladmitted}}</td>
+              <td>{{patient.disease}}</td>
+              <td>{{patient.relativename}}</td>
+              <td>{{patient.relativephonenumber}}</td>
+              <td>{{patient.dateadmitted}}</td>
+              <td>{{patient.currentstatus}}</td>
+          </tr>
+      </table>
+        <br><br>     
+    </div>
+</div>
